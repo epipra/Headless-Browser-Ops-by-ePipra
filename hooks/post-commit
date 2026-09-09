@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+LOCKFILE=".git/.changelog-lock"
+
+if [ -f "$LOCKFILE" ]; then
+  rm -f "$LOCKFILE"
+  exit 0
+fi
+
+CHANGELOG="CHANGELOG.md"
+HASH=$(git log -1 --pretty=format:"%h")
+MSG=$(git log -1 --pretty=format:"%s")
+DATE=$(git log -1 --pretty=format:"%ad" --date=short)
+ENTRY="- ${DATE} \`${HASH}\` ${MSG}"
+
+if [ ! -f "$CHANGELOG" ]; then
+  printf '# Changelog\n\nAutomatically maintained on every commit via `hooks/post-commit`.\n\n## Unreleased\n\n%s\n' "$ENTRY" > "$CHANGELOG"
+else
+  awk -v entry="$ENTRY" '
+    seen==1 && blank==0 && $0=="" { print; print entry; blank=1; next }
+    /^## Unreleased/ { print; seen=1; next }
+    { print }
+  ' "$CHANGELOG" > "$CHANGELOG.tmp" && mv "$CHANGELOG.tmp" "$CHANGELOG"
+fi
+
+touch "$LOCKFILE"
+git add "$CHANGELOG"
+git commit --amend --no-edit --no-verify > /dev/null

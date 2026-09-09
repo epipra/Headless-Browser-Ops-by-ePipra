@@ -44,6 +44,8 @@ agent-browser close
 | `docs/USAGE.md` | Full command reference |
 | `docs/PROFILES.md` | How persistent profiles and logins work |
 | `docs/SECURITY.md` | Domain allowlisting, profile safety, credential handling |
+| `CHANGELOG.md` | Automatically updated on every commit |
+| `hooks/post-commit` | Git hook that powers the auto-changelog |
 
 ## Core commands
 

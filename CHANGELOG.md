@@ -1,0 +1,10 @@
+# Changelog
+
+Automatically maintained on every commit via `hooks/post-commit`.
+Newest entries appear at the top of "Unreleased".
+
+## Unreleased
+
+- 2026-09-09 `f9e77be` feat: add auto-updating CHANGELOG.md via git hook
+- 2026-09-09 `8e5422f` docs: use real clone URL in README
+- 2026-09-09 `95c2a03` Initial commit: Browser Tasks Automation reusable toolkit

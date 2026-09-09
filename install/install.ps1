@@ -1,18 +1,14 @@
 Write-Host "=== Browser Tasks Automation - Installer (Windows) ==="
 Write-Host ""
 
-# 1. Check Node.js
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     Write-Host "Node.js not found."
-    Write-Host "Install it first, then re-run this script:"
     Write-Host "  winget install OpenJS.NodeJS.LTS"
-    Write-Host "  or download from https://nodejs.org"
     exit 1
 } else {
     Write-Host "Node.js found: $(node -v)"
 }
 
-# 2. Check Chrome
 $chromePath = "$Env:ProgramFiles\Google\Chrome\Application\chrome.exe"
 $chromePathX86 = "${Env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe"
 if ((Test-Path $chromePath) -or (Test-Path $chromePathX86)) {
@@ -20,23 +16,24 @@ if ((Test-Path $chromePath) -or (Test-Path $chromePathX86)) {
 } else {
     Write-Host "Google Chrome not found."
     Write-Host "  winget install Google.Chrome"
-    Write-Host "  or download from https://www.google.com/chrome"
     exit 1
 }
 
-# 3. Install agent-browser CLI
 Write-Host ""
 Write-Host "Installing agent-browser CLI..."
 npm install -g agent-browser
 
-# 4. Set up folders
 New-Item -ItemType Directory -Force -Path "$Env:USERPROFILE\.agent-browser-profiles" | Out-Null
 New-Item -ItemType Directory -Force -Path "$Env:USERPROFILE\.browser-tasks-automation\logs" | Out-Null
 
-# 5. Set up env file
 if (-not (Test-Path ".env")) {
     Copy-Item ".env.example" ".env"
     Write-Host "Created .env from template. Edit it to set AGENT_BROWSER_ALLOWED_DOMAINS."
+}
+
+if ((Test-Path "hooks") -and (Test-Path ".git")) {
+    git config core.hooksPath hooks
+    Write-Host "Enabled auto-changelog git hook."
 }
 
 Write-Host ""
