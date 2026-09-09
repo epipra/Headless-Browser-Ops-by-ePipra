@@ -1,0 +1,9 @@
+node_modules/
+.env
+profiles/*
+!profiles/.gitkeep
+*.log
+*.png
+*.jpg
+.DS_Store
+Thumbs.db
