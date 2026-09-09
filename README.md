@@ -39,6 +39,7 @@ agent-browser close
 | `install/install.ps1` | One-step installer for Windows |
 | `scripts/new-profile.sh` / `.ps1` | Create a named, persistent browser profile |
 | `scripts/check-domains.sh` | Print the current domain allowlist |
+| `scripts/cut-release.sh` | Daily cron job: cuts a CalVer GitHub release from CHANGELOG.md when new commits exist |
 | `.env.example` | Template for your domain allowlist and optional AI key |
 | `docs/SETUP.md` | Full setup walkthrough |
 | `docs/USAGE.md` | Full command reference |
