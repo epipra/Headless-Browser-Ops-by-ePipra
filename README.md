@@ -10,7 +10,7 @@ local Linux/macOS machine, or Windows.
 ### Linux / macOS
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/epipra/Headless-Browser-Ops-by-ePipra.git
 cd browser-tasks-automation
 bash install/install.sh
 ```
@@ -18,7 +18,7 @@ bash install/install.sh
 ### Windows (PowerShell)
 
 ```powershell
-git clone <your-repo-url>
+git clone https://github.com/epipra/Headless-Browser-Ops-by-ePipra.git
 cd browser-tasks-automation
 powershell -ExecutionPolicy Bypass -File install/install.ps1
 ```
