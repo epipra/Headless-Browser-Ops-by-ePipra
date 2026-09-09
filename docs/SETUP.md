@@ -57,3 +57,9 @@ Get-Content .env | Where-Object { $_ -notmatch '^#' } | ForEach-Object {
 ```
 
 See `docs/SECURITY.md` for why this matters before running unattended tasks.
+
+## Optional: automated releases
+
+This repo can cut and publish its own dated GitHub Releases on a daily cron
+schedule, driven entirely by `CHANGELOG.md`. One-time setup (a GitHub
+token) is in `docs/RELEASES.md` — skip it if you don't need releases.

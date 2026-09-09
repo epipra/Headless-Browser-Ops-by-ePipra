@@ -5,6 +5,7 @@ Newest entries appear at the top of "Unreleased".
 
 ## Unreleased
 
+- 2026-09-09 `bba0f2d` docs: document automated release setup, usage, and troubleshooting
 - 2026-09-09 `c49b1b6` feat: add cut-release.sh for automated CalVer GitHub releases
 - 2026-09-09 `2f3ad99` docs: add design spec for automated CalVer release cron job
 - 2026-09-09 `ca3ad31` chore: remove accidentally committed internal state, ignore going forward

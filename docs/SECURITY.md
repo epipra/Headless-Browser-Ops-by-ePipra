@@ -25,6 +25,13 @@ reuse the saved session). This avoids both the practical problem (most
 platforms block automated logins) and the safety problem (credentials
 ending up in shell history or logs).
 
+## Automated release token
+
+The daily release cron job (`docs/RELEASES.md`) uses a GitHub token stored
+at `/root/.config/browser-tasks-automation/github_token`, outside the repo.
+Treat it like any other credential: fine-grained, scoped to this one repo,
+`chmod 600`, never committed, never pasted into chat.
+
 ## Screenshots and logs
 
 Screenshots and command output may capture page content, including anything
