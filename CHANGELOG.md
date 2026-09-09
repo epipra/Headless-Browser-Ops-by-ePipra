@@ -5,6 +5,7 @@ Newest entries appear at the top of "Unreleased".
 
 ## Unreleased
 
+- 2026-09-09 `2f3ad99` docs: add design spec for automated CalVer release cron job
 - 2026-09-09 `ca3ad31` chore: remove accidentally committed internal state, ignore going forward
 - 2026-09-09 `f9e77be` feat: add auto-updating CHANGELOG.md via git hook
 - 2026-09-09 `8e5422f` docs: use real clone URL in README
