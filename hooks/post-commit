@@ -16,7 +16,16 @@ if [ ! -f "$CHANGELOG" ]; then
   printf '# Changelog\n\nAutomatically maintained on every commit via `hooks/post-commit`.\n\n## Unreleased\n\n%s\n' "$ENTRY" > "$CHANGELOG"
 else
   awk -v entry="$ENTRY" '
-    seen==1 && blank==0 && $0=="" { print; print entry; blank=1; next }
+    seen==1 && blank==0 && $0=="" {
+      print
+      print entry
+      blank=1
+      if ((getline nxt) > 0) {
+        if (nxt ~ /^## /) print ""
+        print nxt
+      }
+      next
+    }
     /^## Unreleased/ { print; seen=1; next }
     { print }
   ' "$CHANGELOG" > "$CHANGELOG.tmp" && mv "$CHANGELOG.tmp" "$CHANGELOG"
