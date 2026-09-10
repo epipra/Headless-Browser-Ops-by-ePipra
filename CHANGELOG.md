@@ -5,6 +5,10 @@ Newest entries appear at the top of "Unreleased".
 
 ## Unreleased
 
+- 2026-09-10 `78e9456` chore: release v2026.09.10
+
+## v2026.09.10 - 2026-09-10
+
 - 2026-09-09 `0123775` fix: keep blank-line separation when changelog hook inserts above a version header
 - 2026-09-09 `9338061` chore: release v2026.09.09
 
